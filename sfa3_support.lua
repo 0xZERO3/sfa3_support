@@ -1,3 +1,4 @@
+-- sfa3_support v1.0
 dofile("./sub/deepcopy.lua")
 dofile("./sub/config.lua")
 dofile("./sub/func.lua")
@@ -41,7 +42,7 @@ function get_throw_id(kind)
 end
 
 function register_bp()
-	if G_emulator == "mame" or G_emulator == "mamerr" then
+	if G_emulator == "mame" or G_emulator == "mame_old" or G_emulator == "mamerr" then
 		if G_dbg ~= nil then
 			if c.debug_coop == true then
 				for i = 1, m.conf.p_num do
@@ -1241,7 +1242,7 @@ function exe_menu()
 		if MENU[i].kind == "BACK GROUND" and ismenu() ~= true then
 			if MENU[i].desc[MENU[i].h] == "DISABLE" then
 				if RAM.blackscr == nil then
-					if G_emulator == "mame" and G_dbg ~= nil then
+					if (G_emulator == "mame" or G_emulator == "mame_old") and G_dbg ~= nil then
 						RAM.blackscr = {}
 						for j = 1, #BLSCR[RAM.version] do
 							if BLSCR[RAM.version][j].bg == true then
@@ -1252,7 +1253,7 @@ function exe_menu()
 						end
 					end
 				end
-				if G_emulator == "mame" and G_dbg ~= nil then
+				if (G_emulator == "mame" or G_emulator == "mame_old") and G_dbg ~= nil then
 					for j = 1, #BLSCR[RAM.version] do
 						if BLSCR[RAM.version][j].bg == true then
 							G_dbg:command(string.format("%s0x%X=0x%02X", BLSCR[RAM.version][j].cmd, BLSCR[RAM.version][j].addr, BLSCR[RAM.version][j].data))
@@ -1284,7 +1285,7 @@ function exe_menu()
 				end
 			elseif MENU[i].desc[MENU[i].h] == "RESTORE" then
 				if RAM.blackscr ~= nil then
-					if G_emulator == "mame" then
+					if G_emulator == "mame" or G_emulator == "mame_old" then
 						for j = 1, #BLSCR[RAM.version] do
 							if BLSCR[RAM.version][j].bg == true then
 								G_dbg:command(string.format("%s0x%X=0x%02X", BLSCR[RAM.version][j].cmd, BLSCR[RAM.version][j].addr, RAM.blackscr[j]))

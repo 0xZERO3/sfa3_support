@@ -5,6 +5,7 @@
 c = {
 	delay = {
 		["mame"] = 0,
+		["mame_old"] = 0,
 		["mamerr"] = 0,
 		["bizhawk"] = 0,
 		["fbarr"] = 1,
@@ -54,12 +55,12 @@ v = {
 MENUTRIGGER = {"ENTER",	"SHIFT"}
 
 KEYBOARD = {
-	ENTER     = {mame = "ENTER",		mamerr = "enter",		fbarr = "enter",	fcfbneo = "enter",		prev = false,	toggle = false},
-	SHIFT     = {mame = "RSHIFT",		mamerr = "shift",		fbarr = "shift",	fcfbneo = "shift",		prev = false,	toggle = false},
-	UP        = {mame = "UP",			mamerr = "up",			fbarr = "up",		fcfbneo = "up",			prev = false,	toggle = false},
-	DOWN      = {mame = "DOWN",			mamerr = "down",		fbarr = "down",		fcfbneo = "down",		prev = false,	toggle = false},
-	LEFT      = {mame = "LEFT",			mamerr = "left",		fbarr = "left",		fcfbneo = "left",		prev = false,	toggle = false},
-	RIGHT     = {mame = "RIGHT",		mamerr = "right",		fbarr = "right",	fcfbneo = "right",		prev = false,	toggle = false},
+	ENTER     = {mame = "ENTER",		mame_old = "ENTER",			mamerr = "enter",		fbarr = "enter",	fcfbneo = "enter",		prev = false,	toggle = false},
+	SHIFT     = {mame = "RSHIFT",		mame_old = "RSHIFT",		mamerr = "shift",		fbarr = "shift",	fcfbneo = "shift",		prev = false,	toggle = false},
+	UP        = {mame = "UP",			mame_old = "UP",			mamerr = "up",			fbarr = "up",		fcfbneo = "up",			prev = false,	toggle = false},
+	DOWN      = {mame = "DOWN",			mame_old = "DOWN",			mamerr = "down",		fbarr = "down",		fcfbneo = "down",		prev = false,	toggle = false},
+	LEFT      = {mame = "LEFT",			mame_old = "LEFT",			mamerr = "left",		fbarr = "left",		fcfbneo = "left",		prev = false,	toggle = false},
+	RIGHT     = {mame = "RIGHT",		mame_old = "RIGHT",			mamerr = "right",		fbarr = "right",	fcfbneo = "right",		prev = false,	toggle = false},
 }
 
 MENU = {

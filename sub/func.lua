@@ -46,6 +46,7 @@ w_unique = function () return G_wrapper_table[get_w_table_subscript()].w_unique(
 
 G_cycle_table = {
 	{emulator = "mame",				cycle_type = "register",		get_data_func = function() emu.register_frame(get_data) return end,			draw_func = function() emu.register_frame_done(draw) return end,	},
+	{emulator = "mame_old",			cycle_type = "register",		get_data_func = function() emu.register_frame(get_data) return end,			draw_func = function() emu.register_frame_done(draw) return end,	},
 	{emulator = "mamerr",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
 	{emulator = "fbarr",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
 	{emulator = "fcfbneo",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},

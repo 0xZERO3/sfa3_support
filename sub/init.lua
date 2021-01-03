@@ -9,19 +9,32 @@ m = nil
 FG = (-0x006F0000)
 
 if emu.app_name then
-	G_emulator = "mame"
-	G_cpu = manager:machine().devices[":maincpu"]
-	G_mem = G_cpu.spaces["program"]
-	G_dbg = manager:machine():debugger()
-	G_scr = manager:machine().screens[":screen"]
-	G_inp = manager:machine():input()
-	-- psx
-	if G_scr == nil then
-		G_scr = manager:machine().screens[":gpu:screen"]
-	end
-	-- gba
-	if G_scr == nil then
-		G_scr = manager:machine().screens[":lcd:screen"]
+	if tonumber(emu.app_version()) >= 0.227 then
+		G_emulator = "mame"
+		G_cpu = manager.machine.devices[":maincpu"]
+		G_mem = G_cpu.spaces["program"]
+		G_inp = manager.machine.input
+		G_dbg = manager.machine.debugger
+		G_scr = manager.machine.screens[":screen"]
+		-- gba
+		if G_scr == nil then
+			G_scr = manager.machine.screens[":lcd:screen"]
+		end
+	else
+		G_emulator = "mame_old"
+		G_cpu = manager:machine().devices[":maincpu"]
+		G_mem = G_cpu.spaces["program"]
+		G_inp = manager:machine():input()
+		G_dbg = manager:machine():debugger()
+		G_scr = manager:machine().screens[":screen"]
+		-- psx
+		if G_scr == nil then
+			G_scr = manager:machine().screens[":gpu:screen"]
+		end
+		-- gba
+		if G_scr == nil then
+			G_scr = manager:machine().screens[":lcd:screen"]
+		end
 	end
 elseif mame then
 	G_emulator = "mamerr"
