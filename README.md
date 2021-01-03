@@ -1,4 +1,4 @@
-sfa3_support v0.9<br>
+sfa3_support v1.0<br>
 <br>
 【はじめに】<br>
 本スクリプトはStreet Fighter ZERO3(ALPHA3)の判定等の内部データを表示する機能を搭載しています。<br>
@@ -36,46 +36,46 @@ sfa3_support v0.9<br>
 ・MAME[mame0200b_64bit]<br>
 　https://www.mamedev.org/<br>
 　CPS2版、PS版、GBA版で利用可能。<br>
-　<img src="./pic/mame_cps2_00.png" height="240"><br>
-　<img src="./pic/mame_ps1_00.png" height="240"><br>
-　<img src="./pic/mame_gba_00.png" height="240"><br>
+　<img src="./pic/mame_cps2_00.png" height="360"><br>
+　<img src="./pic/mame_ps1_00.png" height="360"><br>
+　<img src="./pic/mame_gba_00.png" height="360"><br>
 <br>
 ・MAME Rerecording[mame-rr-0139-test2]<br>
 　https://code.google.com/archive/p/mame-rr/<br>
 　CPS2版で利用可能。<br>
-　<img src="./pic/mamerr_cps2_00.png" height="240"><br>
+　<img src="./pic/mamerr_cps2_00.png" height="360"><br>
 <br>
 ・FinalBurn Alpha Rerecording[fba-rr-v007]<br>
 　https://code.google.com/archive/p/fbarr/<br>
 　CPS2版で利用可能。<br>
-　<img src="./pic/fbarr_cps2_00.png" height="240"><br>
+　<img src="./pic/fbarr_cps2_00.png" height="360"><br>
 <br>
 ・FightCade2[FBNeo v0.2.97.44-30]<br>
 　https://www.fightcade.com/<br>
 　CPS2版で利用可能。<br>
-　<img src="./pic/fcfbneo_cps2_00.png" height="240"><br>
+　<img src="./pic/fcfbneo_cps2_00.png" height="360"><br>
 <br>
 ・Bizhawk[BizHawk-2.4.2]<br>
 　http://tasvideos.org/BizHawk.html<br>
 　SS版、PS版、GBA版で利用可能。<br>
-　<img src="./pic/bizhawk_ss_00.png" height="240"><br>
-　<img src="./pic/bizhawk_ps1_00.png" height="240"><br>
-　<img src="./pic/bizhawk_gba_00.png" height="240"><br>
+　<img src="./pic/bizhawk_ss_00.png" height="360"><br>
+　<img src="./pic/bizhawk_ps1_00.png" height="360"><br>
+　<img src="./pic/bizhawk_gba_00.png" height="360"><br>
 <br>
 ・PSXjin[psxjinv2.0.2]<br>
 　https://www.emutopia.com/index.php/emulators/item/299-sony-playstation/423-psxjin<br>
 　PS版で利用可能。<br>
-　<img src="./pic/psxjin_ps1_00.png" height="240"><br>
+　<img src="./pic/psxjin_ps1_00.png" height="360"><br>
 <br>
 ・VBA-ReRecording[vba-rerecording-svn480-win32]<br>
 　https://code.google.com/archive/p/vba-rerecording/<br>
 　GBA版で利用可能。<br>
-　<img src="./pic/vbarr_gba_00.png" height="240"><br>
+　<img src="./pic/vbarr_gba_00.png" height="360"><br>
 <br>
 ・PCSX2-RR[PCSX2-rr_v1.0.1]<br>
 　https://github.com/xTVaser/pcsx2-rr<br>
 　PS2版で利用可能。<br>
-　<img src="./pic/pcsx2rrlua_ps2_00.png" height="240"><br>
+　<img src="./pic/pcsx2rrlua_ps2_00.png" height="360"><br>
 <br>
 <br>
 【その他設定】<br>
@@ -84,22 +84,25 @@ sfa3_support v0.9<br>
 <br>
 <br>
 【既知の不具合や仕様】<br>
-・エミュレータによっては映像に対して表示される判定や値が同期されないことがある。推奨エミュレータはMAME。次いでMAME-RR。<br>
+・エミュレータによっては映像に対して表示される判定や値が同期されないことがある。<br>
+　推奨エミュレータはMAME。次いでMAME-RR。MAMEはデータの取得タイミングも最適化されている模様。<br>
 ・MAME使用時に文字の幅がずれたり、画面端付近のデータ等が画面内に無理やり表示されたりする。<br>
 　これはフォントにプロポーショナルフォントが使用されていたり、エミュレータの仕様によるもの。<br>
 ・Bizhawk＋SS版の環境にて、キャラIDの値が大きいキャラ(例：ユーニ)の攻撃判定が表示されない。また、動作が非常に重い。<br>
 ・一部のエミュレータや環境によっては投げ判定が表示されない。理由は技術的な問題やエミュレータの仕様など様々。<br>
 　投げ判定を表示させるには複雑な処理が必要なため、特定の条件や設定を行わなければならず、敷居が高い。<br>
-　とにかく表示させたいという場合はMAMEかMAME-RRにて980904の使用が簡単でおすすめ。980904はROMの作りが他と若干異なり簡単であるため。<br>
-　解析者向け情報としてconfig.luaのcにてclear_idがtrueの場合、メモリの一部を書き換えて間借りすることによって投げ判定表示を実現している。<br>
-　MAMEを使い、clear_idをfalse、debug_coopをtrueにした上で「-debug」を有効にするとメモリの書き換え無しに投げ判定表示が可能となる。<br>
+　とにかく表示させたいという場合はMAMEかMAME-RRにて980904の使用が簡単でおすすめ。<br>
+　980904はROMの作りが他と若干異なっており、表示が簡単な構造になっているため。<br>
+　解析者向け情報として、config.luaのcにてclear_idがtrueの場合、メモリの一部を書き換えて間借りすることによって<br>
+　投げ判定表示を実現している。MAMEを使い、clear_idをfalse、debug_coopをtrueにした上で「-debug」を有効にすると<br>
+　メモリの書き換え無しに投げ判定表示が可能となる。<br>
 　他にも様々な方法で投げ判定を表示させる手法を組み込んであるため、要望があれば詳しく解説するかもしれません。<br>
+・動作時にMAMEをリセットするとスクリプトも再度読み込まれ、スクリプトが多重に起動され動作が重くなる<br>
 ・etc...思い出したりしたら追記していきます。<br>
 <br>
 <br>
 【表示内容】<br>
 　<img src="./pic/pic01.png" height="520"><br>
-　<img src="./pic/mame_cps2_00.png" height="720"><br>
 ・HITBOX関連<br>
 　橙:キャラクターや飛び道具等が存在する座標の中心点を表示。<br>
 　青:存在判定。押し合い判定とも呼ばれる。キャラ同士が同じ座標に重ならないようにするための判定。<br>
@@ -211,5 +214,7 @@ sfa3_support v0.9<br>
 <br>
 <br>
 【修正履歴】<br>
+v1.0<br>
+・MAME 0.227の新しい形式のLua APIに追加対応。<br>
 v0.9<br>
 ・1st release
