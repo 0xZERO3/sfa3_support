@@ -33,7 +33,7 @@ sfa3_support v1.0<br>
 <br>
 <br>
 【動作確認環境】<br>
-・MAME[mame0200b_64bit]<br>
+・MAME[mame0200b_64bit/mame0227b_64bit]<br>
 　https://www.mamedev.org/<br>
 　CPS2版、PS版、GBA版で利用可能。<br>
 　<img src="./pic/mame_cps2_00.png" height="360"><br>
