@@ -219,14 +219,20 @@ sfa3_support v1.0<br>
 ・HITBOX DATA1->STANDARD<br>
 　各判定はキャラクターや飛び道具等の中心点を起点として、直感的には分かりづらい値で設定されている。<br>
 　それらを書籍で使われるような一般プレイヤーに馴染みのある形式に変換した値を表示。<br>
-　X:中心点を起点とした各判定の中心のX座標<br>
-　Y:中心点を起点とした各判定の中心のY座標<br>
-　W:(Width)各判定の幅<br>
-　H:(Height)各判定の高さ<br>
-　L:(Left)中心点を起点とした各判定の左端X座標<br>
-　T:(Top)中心点を起点とした各判定の上端Y座標<br>
-　R:(Right)中心点を起点とした各判定の右端X座標<br>
-　B:(Bottom)中心点を起点とした各判定の下端Y座標<br>
+　X:中心点を起点とした判定の中心のX座標<br>
+　Y:中心点を起点とした判定の中心のY座標<br>
+　W:Width 判定の幅<br>
+　H:Height 判定の高さ<br>
+　L:Left 中心点を起点とした判定の左端X座標<br>
+　T:Top 中心点を起点とした判定の上端Y座標<br>
+　R:Right 中心点を起点とした判定の右端X座標<br>
+　B:Bottom 中心点を起点とした判定の下端Y座標<br>
+　POW:Power 攻撃値<br>
+　HBK:HitBack 地上ヒット時のヒットバックの大きさを表す(?)<br>
+　VEC:Vector 空中ヒット時の吹き飛び方向を表す(?)<br>
+　DIR:Direction ヒットバック方向を表す(?)<br>
+　LOC:Location 打撃無効化の判定に使われる攻撃位置を表す。B:Back 奥が有効 F:Front 手前が有効<br>
+　PRI:Priority 打撃無効化の判定に使われる優位度を表す。<br>
 <br>
 　<img src="./pic/HITBOX DATA1_ADVANCED.png" height="520"><br>
 ・HITBOX DATA1->ADVANCED<br>
