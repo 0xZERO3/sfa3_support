@@ -213,6 +213,27 @@ sfa3_support v1.0<br>
 　上:^ 左:< 下:v 右:> 弱P:青P 中P:黄P 強P:赤P 弱K:青K 中K:黄K 強K:赤K Coin:C Start:S Test:T<br>
 <br>
 <br>
+【拡張機能】<br>
+　<img src="./pic/Extensions.png" height="520"><br>
+　<img src="./pic/HITBOX DATA1_STANDARD.png" height="520"><br>
+・HITBOX DATA1->STANDARD<br>
+　各判定はキャラクターや飛び道具等の中心点を起点として、直感的には分かりづらい値で設定されている。<br>
+　それらを書籍で使われるような一般プレイヤーに馴染みのある形式に変換した値を表示。<br>
+　X:中心点を起点とした各判定の中心のX座標<br>
+　Y:中心点を起点とした各判定の中心のY座標<br>
+　W:(Width)各判定の幅<br>
+　H:(Height)各判定の高さ<br>
+　L:(Left)中心点を起点とした各判定の左端X座標<br>
+　T:(Top)中心点を起点とした各判定の上端Y座標<br>
+　R:(Right)中心点を起点とした各判定の右端X座標<br>
+　B:(Bottom)中心点を起点とした各判定の下端Y座標<br>
+<br>
+　<img src="./pic/HITBOX DATA1_ADVANCED.png" height="520"><br>
+・HITBOX DATA1->ADVANCED<br>
+　各判定に設定された値のSTANDARD形式に変換する前の、解析者向けの値を表示。<br>
+　詳細については後日記載<br>
+<br>
+<br>
 【修正履歴】<br>
 v1.0<br>
 ・MAME 0.227の新しい形式のLua APIに追加対応。<br>
