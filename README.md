@@ -191,9 +191,9 @@ sfa3_support v1.0<br>
 <br>
 <br>
 【拡張機能】<br>
+・HITBOX DATA1->STANDARD<br>
 　<img src="./pic/Extensions.png" height="520"><br>
 　<img src="./pic/HITBOX DATA1_STANDARD.png" height="520"><br>
-・HITBOX DATA1->STANDARD<br>
 　各判定はキャラクターや飛び道具等の中心点を起点として、直感的には分かりづらい値で設定されている。<br>
 　それらを書籍で使われるような一般プレイヤーに馴染みのある形式に変換した値を表示。<br>
 　X:中心点を起点とした判定の中心のX座標<br>
@@ -211,15 +211,15 @@ sfa3_support v1.0<br>
 　LOC:Location 打撃無効化の判定に使われる攻撃位置を表す。B:Back 奥が有効 F:Front 手前が有効<br>
 　PRI:Priority 打撃無効化の判定に使われる優位度を表す。<br>
 <br>
-　<img src="./pic/HITBOX DATA1_ADVANCED.png" height="520"><br>
 ・HITBOX DATA1->ADVANCED<br>
+　<img src="./pic/HITBOX DATA1_ADVANCED.png" height="520"><br>
 　各判定に設定された値のSTANDARD形式に変換する前の、解析者向けの値を表示。<br>
 　詳細については後日記載<br>
 <br>
 <br>
+・HITBOX DATA2<br>
 　<img src="./pic/HITBOX DATA2_PLAYER.png" height="520"><br>
 　<img src="./pic/HITBOX DATA2_PROJ_ATTACK.png" height="520"><br>
-・HITBOX DATA2<br>
 　各判定が格納されたアドレスと、設定された生データを表示。要するにHITBOX DATA1の生データ。<br>
 　画面に全てを表示することは不可能であるため、各項目ごとに選択して表示する形式とした。<br>
 　PLAYER:本体に関わるデータの表示。攻撃判定や投げ判定も含まれる。<br>
