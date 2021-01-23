@@ -1,4 +1,4 @@
-sfa3_support v1.0<br>
+sfa3_support v1.1<br>
 <br>
 【はじめに】<br>
 本スクリプトはStreet Fighter ZERO3(ALPHA3)の判定等の内部データを表示する機能を搭載しています。<br>
@@ -258,6 +258,8 @@ sfa3_support v1.0<br>
 <br>
 <br>
 【修正履歴】<br>
+v1.1<br>
+・通常は行くことが出来ない空間でも位置を把握できるレーダー機能の追加。<br>
 v1.0<br>
 ・MAME 0.227の新しい形式のLua APIに追加対応。<br>
 v0.9<br>
