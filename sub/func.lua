@@ -119,6 +119,7 @@ function byteswap(value, order)
 	return tmp
 end
 
+-- for ps2(bad code)
 function ToSignedByForce(value, order)
 	local tmp = value
 	if order == 4 then

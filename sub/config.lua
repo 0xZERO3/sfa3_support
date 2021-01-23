@@ -35,6 +35,8 @@ c = {
 		throw		= {color = 0xFFFFFF,	fill = 0x00,	outline = 0xFF,		alpha = nil},	-- white
 		wire		= {color = 0xFF4444,	fill = 0x00,	outline = 0xFF,		alpha = nil},	-- wine red
 		menu		= {color = 0x555555,	fill = 0xD0,	outline = 0xD0,		alpha = nil},	-- gray
+		a_dimension	= {color = 0x222222,	fill = 0x80,	outline = 0x00,		alpha = nil},	-- gray
+		realworld	= {color = 0x00FF00,	fill = 0x20,	outline = 0x00,		alpha = nil},	-- green
 		grid		= {color = 0xFFFFFF,	fill = 0x20,	outline = nil,		alpha = 0x20},	-- white
 		text		= {color = 0xFFFFFF,	fill = 0x00,	outline = nil,		alpha = 0xFF},	-- white
 	}
@@ -92,7 +94,8 @@ MENU = {
 	{kind = "HITBOX DATA2",			status = false,		h = 1,		desc = {"OFF",		"PLAYER",	"PROJ ATTACK",	"PROJ HEAD",	"PROJ OSHI",}	},
 	{kind = "ANIMATION DATA",		status = false,		h = 1,		desc = {"OFF",		"ON"}														},
 	{kind = "VARIOUS DATA1",		status = false,		h = 2,		desc = {"OFF",		"ON"}														},
-	{kind = "GRID",					status = false,		h = 1,		desc = {"OFF",		"TYPE1",	"TYPE2",	"TYPE3"}							},
+	{kind = "RADAR",				status = false,		h = 1,		desc = {"OFF",		"TYPE:X",	"TYPE:Y",	"TYPE:XY"}							},
+	{kind = "GRID",					status = false,		h = 1,		desc = {"OFF",		"TYPE:1",	"TYPE:2",	"TYPE:3"}							},
 	{kind = "HUD",					status = false,		h = 1,		desc = {"NORMAL",	"DISABLE",	"RESTORE"}										},
 	{kind = "BACK GROUND",			status = false,		h = 1,		desc = {"NORMAL",	"DISABLE",	"RESTORE"}										},
 -- input,recoard
@@ -141,7 +144,7 @@ HITBOX = {
 	{desc = "",						short = "",		veryshort = "",		disp = nil,		size = 0,	standard = false,	advanced = false,	offset = 0x05},
 	{desc = "radius_y",				short = "RAY",	veryshort = "RY",	disp = "%3d",	size = 2,	standard = false,	advanced = true,	offset = 0x06},
 	{desc = "",						short = "",		veryshort = "",		disp = nil,		size = 0,	standard = false,	advanced = false,	offset = 0x07},
-	{desc = "Damage",				short = "POW",	veryshort = "PO",	disp = "%3d",	size = 1,	standard = true,	advanced = true,	offset = 0x08},
+	{desc = "Power",				short = "POW",	veryshort = "PO",	disp = "%3d",	size = 1,	standard = true,	advanced = true,	offset = 0x08},
 	{desc = "HitBack",				short = "HBK",	veryshort = "HB",	disp = "%3d",	size = 1,	standard = true,	advanced = true,	offset = 0x09},
 	{desc = "Vector",				short = "VEC",	veryshort = "VE",	disp = "%3d",	size = 1,	standard = true,	advanced = true,	offset = 0x0A},
 	{desc = "Direction",			short = "DIR",	veryshort = "DI",	disp = "%3d",	size = 1,	standard = true,	advanced = true,	offset = 0x0B},
@@ -211,6 +214,7 @@ RAM = {
 	hitbox_data1 = "",
 	hitbox_data2 = "",
 	hud = nil,
+	radar = nil,
 	blackscr = nil,
 	version = nil,
 	draw_detail = nil,

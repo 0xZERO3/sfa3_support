@@ -805,6 +805,96 @@ function draw_data(f)
 	end
 end
 
+function draw_common_other(f)
+	local WORLD_WIDTH
+	local BOX_LEFT
+	local BOX_RIGHT
+	local BOX_TOP
+	local BOX_BOTTOM
+	
+	WORLD_WIDTH = 13
+	if RAM.radar == "TYPE:X" then
+		BOX_LEFT = -1
+		BOX_RIGHT = w_scr_width()
+		BOX_TOP = 40
+		BOX_BOTTOM  = BOX_TOP + 18
+		guibox(BOX_LEFT, BOX_TOP, BOX_RIGHT, BOX_BOTTOM, c.color.a_dimension.color, c.color.a_dimension.fill, c.color.a_dimension.outline)
+
+		BOX_LEFT = w_scr_width() - WORLD_WIDTH
+		BOX_RIGHT = w_scr_width()
+		BOX_TOP = 40
+		BOX_BOTTOM  = BOX_TOP + 18
+		guibox(BOX_LEFT, BOX_TOP, BOX_RIGHT, BOX_BOTTOM, c.color.realworld.color, c.color.realworld.fill, c.color.realworld.outline)
+	elseif RAM.radar == "TYPE:Y" then
+		BOX_LEFT = w_scr_width() - WORLD_WIDTH
+		BOX_RIGHT = w_scr_width()
+		BOX_TOP = -1
+		BOX_BOTTOM  = w_scr_height()
+		
+		guibox(BOX_LEFT, BOX_TOP, BOX_RIGHT, BOX_BOTTOM, c.color.a_dimension.color, c.color.a_dimension.fill, c.color.a_dimension.outline)
+		
+		BOX_LEFT = w_scr_width() - WORLD_WIDTH
+		BOX_RIGHT = w_scr_width()
+		BOX_TOP = w_scr_height() - 5
+		BOX_BOTTOM  = w_scr_height()
+		guibox(BOX_LEFT, BOX_TOP, BOX_RIGHT, BOX_BOTTOM, c.color.realworld.color, c.color.realworld.fill, c.color.realworld.outline)
+	elseif RAM.radar == "TYPE:XY" then
+		BOX_LEFT = -1
+		BOX_RIGHT = w_scr_width()
+		BOX_TOP = -1
+		BOX_BOTTOM  = w_scr_height()
+		guibox(BOX_LEFT, BOX_TOP, BOX_RIGHT, BOX_BOTTOM, c.color.a_dimension.color, c.color.a_dimension.fill, c.color.a_dimension.outline)
+		
+		BOX_LEFT = w_scr_width() - WORLD_WIDTH
+		BOX_RIGHT = w_scr_width()
+		BOX_TOP = w_scr_height() - 5
+		BOX_BOTTOM  = w_scr_height()
+		guibox(BOX_LEFT, BOX_TOP, BOX_RIGHT, BOX_BOTTOM, c.color.realworld.color, c.color.realworld.fill, c.color.realworld.outline)
+	end
+end
+
+function draw_player_other(f, id, proj)
+	local target00, target01
+	local color00
+	local pos_x, pos_y
+	
+	if (f[id .. "exist"] == nil) or (f[id .. "exist"] == 0x00) then return end
+	if (proj == true) and (w_lshift(f[id .. "motion00"], 24) + w_lshift(f[id .. "motion01"], 16) + w_lshift(f[id .. "motion02"], 8) + w_lshift(f[id .. "motion03"], 0) > m.proj_alive) then return end
+	if f[id .. "vital"] == nil then return end -- 3p and 4p is not supported
+	
+	if id == "p1" then
+		color00 = 0xFF0000
+	elseif id == "p2" then
+		color00 = 0x0000FF
+	elseif id == "p3" then
+		color00 = 0x00FF00
+	elseif id == "p4" then
+		color00 = 0xFF00FF
+	end
+	target00 = id .. "x"
+	target01 = id .. "y"
+	if RAM.radar == "TYPE:X" then
+		pos_x = f[target00]/0x56 + 369
+		pos_y = (w_scr_height() - f[target01])/0x0B + 37
+		guibox(pos_x, pos_y, pos_x + 2, pos_y + 2, color00, 0xFF, 0xFF)
+	elseif RAM.radar == "TYPE:Y" or RAM.radar == "TYPE:XY" then
+		pos_x = f[target00]/0x56 + 369
+		pos_y = (w_scr_height() - f[target01])/0x129 + 220
+		guibox(pos_x, pos_y, pos_x + 2, pos_y + 2, color00, 0xFF, 0xFF)
+	end
+end
+
+function draw_other(f)
+	if f == nil then return end
+	if f.isfight ~= true then return end
+	
+	draw_common_other(f)
+	
+	for i = 1, m.conf.p_num do
+		draw_player_other(f, "p" .. i, false)
+	end
+end
+
 function cheat()
 	if RAM.cheatchanged == true then
 		if RAM.cheat == true then
@@ -1189,22 +1279,33 @@ function exe_menu()
 				RAM.draw_input = true
 			end
 		end
+		if MENU[i].kind == "RADAR" then
+			if MENU[i].desc[MENU[i].h] == "TYPE:X" then
+				RAM.radar = "TYPE:X"
+			elseif MENU[i].desc[MENU[i].h] == "TYPE:Y" then
+				RAM.radar = "TYPE:Y"
+			elseif MENU[i].desc[MENU[i].h] == "TYPE:XY" then
+				RAM.radar = "TYPE:XY"
+			else
+				RAM.radar = nil
+			end
+		end
 		if MENU[i].kind == "GRID" then
-			if MENU[i].desc[MENU[i].h] == "TYPE1" then
+			if MENU[i].desc[MENU[i].h] == "TYPE:1" then
 				for j = 0, w_scr_width() - 1, 32 do
 					guiline(j, 0, j, w_scr_height() - 1, c.color.grid.color, c.color.grid.alpha)
 				end
 				for j = 0, w_scr_height() - 1, 32 do
 					guiline(0, j, w_scr_width() - 1, j, c.color.grid.color, c.color.grid.alpha)
 				end
-			elseif MENU[i].desc[MENU[i].h] == "TYPE2" then
+			elseif MENU[i].desc[MENU[i].h] == "TYPE:2" then
 				for j = 0, w_scr_width() - 1, 16 do
 					guiline(j, 0, j, w_scr_height() - 1, c.color.grid.color, c.color.grid.alpha)
 				end
 				for j = 0, w_scr_height() - 1, 16 do
 					guiline(0, j, w_scr_width() - 1, j, c.color.grid.color, c.color.grid.alpha)
 				end
-			elseif MENU[i].desc[MENU[i].h] == "TYPE3" then
+			elseif MENU[i].desc[MENU[i].h] == "TYPE:3" then
 				for j = 0, w_scr_width() - 1, 8 do
 					guiline(j, 0, j, w_scr_height() - 1, c.color.grid.color, c.color.grid.alpha)
 				end
@@ -1327,6 +1428,7 @@ function draw()
 	-- draw final frame
 	draw_hitbox(G_frame[G_delay + 1])
 	draw_data(G_frame[G_delay + 1])
+	draw_other(G_frame[G_delay + 1])
 	menu(G_frame[G_delay + 1])
 	cheat()
 end
