@@ -44,7 +44,7 @@ c = {
 
 -- version
 v = {
-	{romname = {"sfz3jr2"},                                    console = "CPS2",  version = {"980629"}						},
+	{romname = {"sfz3jr2", "sfa3aism"},                        console = "CPS2",  version = {"980629"}						},
 	{romname = {"sfz3jr1"},                                    console = "CPS2",  version = {"980727"}						},
 	{romname = {"sfa3", "sfa3u", "sfz3j"},                     console = "CPS2",  version = {"980904"}						},
 	{romname = {"psj", "PSX"},                                 console = "PSX",   version = {"SLPS 01777", "SLPM 86877"}	},
@@ -96,6 +96,7 @@ MENU = {
 	{kind = "VARIOUS DATA1",		status = false,		h = 2,		desc = {"OFF",		"ON"}														},
 	{kind = "RADAR",				status = false,		h = 1,		desc = {"OFF",		"TYPE:X",	"TYPE:Y",	"TYPE:XY"}							},
 	{kind = "GRID",					status = false,		h = 1,		desc = {"OFF",		"TYPE:1",	"TYPE:2",	"TYPE:3"}							},
+	{kind = "BGM",					status = false,		h = 1,		desc = {"NORMAL",	"DISABLE",	"RESTORE"}										},
 	{kind = "HUD",					status = false,		h = 1,		desc = {"NORMAL",	"DISABLE",	"RESTORE"}										},
 	{kind = "BACK GROUND",			status = false,		h = 1,		desc = {"NORMAL",	"DISABLE",	"RESTORE"}										},
 -- input,recoard
@@ -213,6 +214,7 @@ RAM = {
 	draw_detail = nil,
 	hitbox_data1 = "",
 	hitbox_data2 = "",
+	bgm = nil,
 	hud = nil,
 	radar = nil,
 	blackscr = nil,
