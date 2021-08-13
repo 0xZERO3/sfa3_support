@@ -1314,6 +1314,35 @@ function exe_menu()
 				end
 			end
 		end
+		if MENU[i].kind == "BGM" and ismenu() ~= true then
+			if MENU[i].desc[MENU[i].h] == "DISABLE" then
+				if RAM.bgm == nil then
+					if (G_emulator == "mame" or G_emulator == "mame_old") then
+						RAM.bgm = manager.machine.devices[":audiocpu"].spaces["program"]:read_i8(0xF027)
+					end
+				end
+				if (G_emulator == "mame" or G_emulator == "mame_old") then
+					manager.machine.devices[":audiocpu"].spaces["program"]:write_i8(0xF027, 0x00)
+				elseif G_emulator == "mamerr" then
+					print("BGM:Execute below command in the debug window(Cannot be restored)(Recommend:Official MAME and [-debug])")
+					print(string.format("audiocpu.pb@0xF027=0"))
+				elseif G_emulator == "fbarr" or G_emulator == "fcfbneo" then		-- opcodeは変更不能？なため完全には対応出来ないっぽい？
+					print("Not supported(Recommend:Official MAME and [-debug])")
+				else
+					print("Not supported(Recommend:Official MAME and [-debug])")
+				end
+			elseif MENU[i].desc[MENU[i].h] == "RESTORE" then
+				if RAM.bgm ~= nil then
+					if G_emulator == "mame" or G_emulator == "mame_old" then
+						manager.machine.devices[":audiocpu"].spaces["program"]:write_i8(0xF027, RAM.bgm)
+					else
+					end
+				else
+					print("Not supported(Recommend:Official MAME and [-debug])")
+				end
+			end
+			MENU[i].h = 1
+		end
 		if MENU[i].kind == "HUD" and ismenu() ~= true then
 			if MENU[i].desc[MENU[i].h] == "DISABLE" then
 				if RAM.hud == nil then
