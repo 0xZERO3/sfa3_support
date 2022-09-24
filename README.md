@@ -1,4 +1,4 @@
-sfa3_support v1.2<br>
+sfa3_support v1.21<br>
 <br>
 【はじめに】<br>
 本スクリプトはStreet Fighter ZERO3(ALPHA3)の判定等の内部データを表示する機能を搭載しています。<br>
@@ -33,7 +33,7 @@ sfa3_support v1.2<br>
 <br>
 <br>
 【動作確認環境】<br>
-・MAME[mame0200b_64bit/mame0227b_64bit]<br>
+・MAME[mame0200b_64bit/mame0227b_64bit/mame0242b_64bit]<br>
 　https://www.mamedev.org/<br>
 　CPS2版、PS版、GBA版で利用可能。<br>
 　<img src="./pic/mame_cps2_00.png" height="360"><br>
@@ -50,7 +50,7 @@ sfa3_support v1.2<br>
 　CPS2版で利用可能。<br>
 　<img src="./pic/fbarr_cps2_00.png" height="360"><br>
 <br>
-・FightCade2[FBNeo v0.2.97.44-30]<br>
+・FightCade2[FBNeo v0.2.97.44-30/FBNeo v0.2.97.44-52]<br>
 　https://www.fightcade.com/<br>
 　CPS2版で利用可能。<br>
 　<img src="./pic/fcfbneo_cps2_00.png" height="360"><br>
@@ -258,6 +258,8 @@ sfa3_support v1.2<br>
 <br>
 <br>
 【修正履歴】<br>
+v1.21<br>
+・mame0242b_64bit以降で動作しなかった問題の対応<br>
 v1.2<br>
 ・BGM消去設定の追加とsfa3aism化したTEの対応。<br>
 v1.1<br>
