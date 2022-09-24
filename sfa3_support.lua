@@ -74,8 +74,8 @@ end
 function register_func()
 	for i = 1, #G_cycle_table do
 		if G_emulator == G_cycle_table[i].emulator then
-			G_cycle_table[i].get_data_func()
-			G_cycle_table[i].draw_func()
+			G_cycle_table[i].get_data_func(get_data)
+			G_cycle_table[i].draw_func(draw)
 		end
 	end
 end
