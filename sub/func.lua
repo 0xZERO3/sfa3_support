@@ -45,15 +45,15 @@ w_read_pc = function () return G_wrapper_table[get_w_table_subscript()].w_read_p
 w_unique = function () return G_wrapper_table[get_w_table_subscript()].w_unique() end
 
 G_cycle_table = {
-	{emulator = "mame",				cycle_type = "register",		get_data_func = function() emu.register_frame(get_data) return end,			draw_func = function() emu.register_frame_done(draw) return end,	},
-	{emulator = "mame_old",			cycle_type = "register",		get_data_func = function() emu.register_frame(get_data) return end,			draw_func = function() emu.register_frame_done(draw) return end,	},
-	{emulator = "mamerr",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
-	{emulator = "fbarr",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
-	{emulator = "fcfbneo",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
-	{emulator = "psxjin",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
-	{emulator = "vbarr",			cycle_type = "register",		get_data_func = function() emu.registerafter(get_data)  return end,			draw_func = function() gui.register(draw)            return end,	},
-	{emulator = "bizhawk",			cycle_type = "register",		get_data_func = function() event.onframeend(get_data)   return end,			draw_func = function() event.onframestart(draw)      return end,	},
-	{emulator = "pcsx2rrlua",		cycle_type = "register",		get_data_func = function() emu.registerbefore(get_data) return end,			draw_func = function() emu.registerafter(draw)       return end,	},
+	{emulator = "mame",				cycle_type = "register",		get_data_func = function(func) emu.register_frame(func) return end,			draw_func = function(func) emu.register_frame_done(func) return end,	},
+	{emulator = "mame_old",			cycle_type = "register",		get_data_func = function(func) emu.register_frame(func) return end,			draw_func = function(func) emu.register_frame_done(func) return end,	},
+	{emulator = "mamerr",			cycle_type = "register",		get_data_func = function(func) emu.registerafter(func)  return end,			draw_func = function(func) gui.register(func)            return end,	},
+	{emulator = "fbarr",			cycle_type = "register",		get_data_func = function(func) emu.registerafter(func)  return end,			draw_func = function(func) gui.register(func)            return end,	},
+	{emulator = "fcfbneo",			cycle_type = "register",		get_data_func = function(func) emu.registerafter(func)  return end,			draw_func = function(func) gui.register(func)            return end,	},
+	{emulator = "psxjin",			cycle_type = "register",		get_data_func = function(func) emu.registerafter(func)  return end,			draw_func = function(func) gui.register(func)            return end,	},
+	{emulator = "vbarr",			cycle_type = "register",		get_data_func = function(func) emu.registerafter(func)  return end,			draw_func = function(func) gui.register(func)            return end,	},
+	{emulator = "bizhawk",			cycle_type = "register",		get_data_func = function(func) event.onframeend(func)   return end,			draw_func = function(func) event.onframestart(func)      return end,	},
+	{emulator = "pcsx2rrlua",		cycle_type = "register",		get_data_func = function(func) emu.registerbefore(func) return end,			draw_func = function(func) emu.registerafter(func)       return end,	},
 }
 
 function r(f, base, element, id, kind)
